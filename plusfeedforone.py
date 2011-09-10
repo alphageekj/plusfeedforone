@@ -143,7 +143,7 @@ for post in posts:
 	feed += '<link href="' + permalink + '" rel="alternate"></link>\n'
 	feed += '<updated>' + dt.strftime(ATOM_DATE) + '</updated>\n'
 	feed += '<id>tag:plus.google.com,' + dt.strftime('%Y-%m-%d') + ':/' + id + '/</id>\n'
-	feed += '<summary type="html">' + escape(desc) + '</summary>\n'
+	feed += '<summary type="html">' + escape(ptitle) + '</summary>\n'
 	feed += '</entry>\n'
 	
 feed += '</feed>\n'
