@@ -1,0 +1,34 @@
+plusfeedforone - turn a single "google plus" public-posts feed into an atom feed
+
+	When Russell Beattie had to shut down his plusfeed.appspot.com because of sudden pricing changes,
+	I was depending on that service. Thankfully, he released it with an MIT license (Thanks, Russel!)
+
+	So, from <https://github.com/russellbeattie/plusfeed>, I grabbed the code, and taught myself enough
+	python to make it work for one feed.
+
+	You will need:
+		1) A google plus feed's identifier (check your profile page).
+		2) A web server that runs python scripts as CGI or some variant thereof (preferably 24x7).
+			a) As a minimum, python will need pycurl installed.
+		3) A way to edit the plusfeedforone.py script.
+		4) A way to upload the edited script to the proper place on the webserver mentioned above.
+
+	To make it work:
+		1) Edit the script, putting the google plus profile identifier in the proper place.
+		2) Upload the edited script to the proper place on your webserver so that it runs as CGI.
+		3) Test, share, and enjoy.
+
+	Comments:
+		1) I am not a programmer. I just taught myself enough python in a week to make this work for me.
+		2) There are probably extra things left over from Russell's code that are no longer needed. Meh.
+		3) There are probably bugs. It seems to be working for me, however...
+		4) If google changes the feed, this will probably break. I may not have time to fix this script then...
+		5) I duplicated Russell's choice of MIT license. Feel free to fork away!
+
+	What I use this for:
+		I run a self-hosted wordpress blog, with the twitter tools plugin installed and running. I installed WPeMatico,
+		which will grab my public google plus posts when pointed to this script, so that anything I post publicly on
+		Google Plus will be posted on my blog, then also to twitter (and to facebook, but facebook does a pull).
+
+2011-09-10	Initial release unto the world.
+
