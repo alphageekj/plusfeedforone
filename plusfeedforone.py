@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import sys
 import re
@@ -6,6 +7,7 @@ import logging
 import pycurl
 import StringIO
 import os
+import codecs
 
 import simplejson as json
 
@@ -16,8 +18,6 @@ from time import mktime
 from time import sleep
 from htmlentitydefs import name2codepoint
 from os import environ
-
-td = timedelta(hours=7)
 
 allurls = re.compile(r'/(.*)')
 idurls = re.compile(r'[0-9]+')
@@ -61,7 +61,7 @@ c.setopt(pycurl.WRITEFUNCTION, b.write)
 c.setopt(pycurl.FOLLOWLOCATION, 1)
 c.setopt(pycurl.MAXREDIRS, 5)
 c.perform()
-txt = b.getvalue()
+txt = unicode(b.getvalue(), errors='ignore')
 
 txt = txt[5:]
 txt = commas.sub(',null,',txt)
@@ -151,5 +151,7 @@ feed += '</feed>\n'
 print 'Last-Modified: ' + updated.strftime(HTTP_DATE_FMT)
 print "Content-Type: application/atom+xml\n"
 
-print feed
+ufeed=unicode(feed)
+
+print ufeed.encode()
 
